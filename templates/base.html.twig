@@ -56,12 +56,17 @@
 
         });
         */
-
+        $('[data-toggle="popover"]').popover();
     });
-
     $('nav').fadeTo(1000, 1, function () {
         // Animation complete.
     });
+    function validateEmail(email) {
+        let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        return re.test(email);
+    }
+
+
 
 </script>
 

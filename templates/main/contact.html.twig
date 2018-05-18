@@ -5,7 +5,31 @@
 {% block body %}
 
     <article id="contact">
+        <div class="row">
+            <div class="col-12">
+                <h3>Sur les Réseaux</h3>
+            </div>
+        </div>
+        <div class="row kards text">
+
+            <div class="col-12">
+                Twitter
+            </div>
+            <div class="col-12">
+                Linkedin
+            </div>
+            <div class="col-12">
+                GitHub
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3>En direct</h3>
+            </div>
+        </div>
+
         <form action="" class="row justify-content-center kards text ">
+
             <div class="col-lg-6 col-12">
                 <label for="firstName">Prénom :</label>
                 <input name="firstName" id="firstName" type="text">
@@ -15,19 +39,23 @@
                 <input name="lastName" id="lastName" type="text">
             </div>
             <div class="col-12">
-                <label for="email">Email :</label>
+                <label for="email">Email* :</label>
                 <input name="email" id="email" type="text">
             </div>
             <div class="col-12">
-                <label for="message">Message :</label>
+                <label for="message">Message* :</label>
             </div>
             <div class="col-12">
                 <textarea name="message" id="message" cols="30" rows="10"></textarea>
             </div>
             <div class="col-12 text-center">
-                <button type="submit" class="myButton">
+                <div class="submitContact myButton disabled" data-toggle="popover" data-trigger="hover"
+                     data-placement="top" data-content="Il te faut au moins remplir ton email et ton message.">
                     Envoyer
-                </button>
+                </div>
+            </div>
+            <div class="col-12">
+                * Champ obligatoire
             </div>
         </form>
     </article>
@@ -43,15 +71,86 @@
             });
             $(document).scroll(function () {
 
-                var headerHeight = $('header').height();
-                var navbarHeight = $('nav').height();
-                var whoIamHeight = $('#whoIam').height();
+                let headerHeight = $('header').height();
+                let navbarHeight = $('nav').height();
+                let whoIamHeight = $('#whoIam').height();
 
-                var scrollPosition = $(document).scrollTop();
-                var fristSwitch = (headerHeight + navbarHeight) + (whoIamHeight / 4);
+                let scrollPosition = $(document).scrollTop();
+                let fristSwitch = (headerHeight + navbarHeight) + (whoIamHeight / 4);
 
 
             });
+            let ButtonSubmit = $('.submitContact');
+
+            ButtonSubmit.click(function () {
+                let datas = $('form').serializeArray();
+                console.log(datas);
+            });
+
+
+
+            ButtonSubmit.hover(function () {
+                checkForm();
+            });
+            $('#email').focus(function () {
+                checkForm();
+            }).blur(function () {
+                checkForm();
+            });
+            $('#message').focus(function () {
+                checkForm();
+            }).blur(function () {
+                checkForm();
+            });
+
+            function checkForm() {
+                console.log("CHECK");
+
+                let email = $('#email').val();
+                let message = $('#message').val();
+                let button = $('.submitContact');
+                let errors = [];
+                let verif = false;
+                if (email.length >= 5) {
+                    if (validateEmail(email)) {
+                        verif = true;
+                    } else {
+                        errors.push("Ton email n'est pas valide");
+                        verif = false;
+                    }
+                } else {
+                    errors.push("Il te faut remplir ton email");
+                    verif = false;
+                }
+                if (message.length >= 5) {
+                    verif = true;
+                } else {
+                    if (errors.length > 0) {
+                        errors.push("et ton message n'est pas rempli");
+                    } else {
+                        errors.push("Il te faut remplir ton Message");
+                    }
+
+
+                    verif = false;
+                }
+
+
+                if (verif === true) {
+                    button.removeClass("disabled")
+                }
+                else {
+                    console.log("ERROR");
+                    let test = errors.join(" ");
+                    console.log(test);
+
+                    button.attr('data-content', test + ".");
+                }
+
+
+            }
+
+
         });
 
 
