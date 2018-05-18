@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+    <article class="row justify-content-center" id="whoIam">
+        <div class="col-12">
+            <h3>Qui Suis-je ?</h3>
+        </div>
+        <div class="col-3">
+            <div class="kards">
+                <img src="{{ asset("img/photo.png") }}" alt="Un manifique photo de moi" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-11 col-lg-8">
+            <div class="kards text">
+                <p>
+                    Je m'apelle Jérémy, j'ai commencer a coder très jeunne, a l'age de 14 ans je decouvrais les joies du
+                    HTML, CSS et de mes premieres fonction Javascipt puis très rapidement du PHP.
+                </p>
+                <p>
+                    Mais le Web n'ai pas mon premier domaine d'étude j'ai commencer par suivre des études pour devenir
+                    Architecte, puis je me suis reorienté vers le social et le domaine de l'annimation.
+                </p>
+                <p>
+                    Mais cela ne me plaisais pas et je passais mes soirées a coder pour créer des jeux ou tout autres
+                    application qui pourrais me simplifié la vie.
+                </p>
+                <p>
+                    Un un matin j'ai pris cet grand decision qui etait de faire ma passion un métier. Pour cela j'ai
+                    suivit une formation à la Wild Code School. On j'ai pu me professionalisé et accérir de nombreuse
+                    compétence.
+                </p>
+
+            </div>
+        </div>
+    </article>
+
+    <article class="row justify-content-center" id="why">
+        <div class="col-12">
+            <h3>Pourquoi cerynna.fr</h3>
+        </div>
+        <div class="col-11">
+
+
+            <div class="kards text">
+                <p>
+                    J'ai crée cerynna.fr dans le but principal de pouvoir partager avec vous ma vie de dévellopeur,
+                    mais
+                    aussi est surtout pour pouvoir hébergé mes "petits projet" perso.
+                </p>
+                <p>
+                    Et le premier de ces projet est le "MyLink" que je veu être un outil de partage de ressource.
+                    <br/>
+                    Un lien, un article vous a plus vous voulez le partager et le stocker pour pouvoir le retrouver
+                    facilement via un systeme d'indexation avec des tags "MyLink" devrais vous être utile.
+                </p>
+
+
+            </div>
+        </div>
+    </article>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            $("#whoIam").fadeTo(1000, 1, function () {
+                // Animation complete.
+            });
+            $(document).scroll(function () {
+
+                var headerHeight = $('header').height();
+                var navbarHeight = $('nav').height();
+                var whoIamHeight = $('#whoIam').height();
+
+                var scrollPosition = $(document).scrollTop();
+                var fristSwitch = (headerHeight + navbarHeight) + (whoIamHeight / 4);
+
+
+                if (scrollPosition >= fristSwitch) {
+                    $("#why").fadeTo(1000, 1, function () {
+                        // Animation complete.
+                    });
+                }
+
+            });
+        });
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+    <article class="row justify-content-center" id="productions">
+
+        {% for production in productions %}
+            <div class="col-11 col-lg-4">
+                <div class="kards">
+                    <h3>{{ production.name }}</h3>
+                    <div class="imgProduction">
+                        <a href="{{ production.link }}" target="_blank">
+                            <img src="{{ asset(production.img) }}" alt="" class="img-fluid">
+                        </a>
+                        <div class="bottom">
+                            <div class="icon animated infinite pulse">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        {{ production.comment }}
+                    </p>
+                </div>
+            </div>
+
+
+        {% endfor %}
+    </article>
+
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            $("#productions").fadeTo(1000, 1, function () {
+                // Animation complete.
+            });
+            $(document).scroll(function () {
+
+                var headerHeight = $('header').height();
+                var navbarHeight = $('nav').height();
+                var whoIamHeight = $('#whoIam').height();
+
+                var scrollPosition = $(document).scrollTop();
+                var fristSwitch = (headerHeight + navbarHeight) + (whoIamHeight / 4);
+
+
+            });
+        });
+        $('.bottom').click(function () {
+            var parent = $(this).parent();
+            parent.animate({scrollTop: parent[0].scrollHeight}, 2000);
+        })
+
+
+        $('.imgProduction').scroll(function () {
+            $(this).find('.bottom').addClass('animated fadeOut');
+
+            console.log($(this).scrollTop());
+
+
+            if ($(this).scrollTop() <= 10 || $(this).scrollTop() === 0) {
+                $(this).find('.bottom').removeClass('fadeOut').addClass('fadeIn');
+            }
+
+
+
+        })
+
+    </script>
+{% endblock %}

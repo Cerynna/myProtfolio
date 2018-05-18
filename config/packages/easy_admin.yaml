@@ -1,0 +1,13 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        Production:
+            class: App\Entity\Production
+            list:
+                fields:
+                    - { property: 'name', type: 'text' }
+                    - { property: 'image', template: 'easyAdmin/imageadmin.html.twig' }
+        Contact:
+            class: App\Entity\Contact
+#        - App\Entity\Category
+#        - App\Entity\User
