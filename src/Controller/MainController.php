@@ -42,4 +42,27 @@ class MainController extends Controller
             'controller_name' => 'MainController',
         ]);
     }
+    /**
+     * @Route("/cv", name="cv")
+     */
+    public function cv()
+    {
+
+        return $this->render('main/cv.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test()
+    {
+
+        return $this->render('main/test.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
+
 }

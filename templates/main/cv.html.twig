@@ -1,0 +1,224 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CV{% endblock %}
+
+{% block body %}
+
+    <article id="cv">
+        <div class="row  justify-content-center">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Formations</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="kards">
+                            <ul>
+                                <li>Dévelloppeur Web (WildCodeSchool)</li>
+                                <li>Recrutement et Management (BLOOM Formation)</li>
+                                <li>Mise A Niveau Art Appliqué (Bellecour Art Appliqué)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Diplomes</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="kards">
+                            <ul>
+                                <li>Initiateur SAE (FFME)</li>
+                                <li>Ouvreur de voies (FFME)</li>
+                                <li>PSC1</li>
+                                <li>BAFA (AFOCAL)</li>
+                                <li>BT Collaborateur d'architecte (GRETA Nord-Isère)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>
+                            Parcours professionnel
+                        </h3>
+                    </div>
+                    <div class="col-12">
+                        <div id="timeline-container-basic" class="kards"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
+
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+
+
+        });
+
+        $('#timeline-container-basic').timelineMe({
+            items: [
+                /*                {
+                                    type: 'milestone',
+                                    label: '20 Décembre 1989',
+                                    picto: '<i class="fas fa-birthday-cake"></i>'
+                                },
+                                {
+                                    type: 'milestone',
+                                    label: 'Lyon',
+                                    picto: '<i class="fas fa-map-marker"></i>'
+                                },
+                                {
+                    type: 'bigItem',
+                    shortContent: 'short description',
+
+                }
+                                */
+                {
+                    type: 'bigItem',
+                    shortContent: '<h3>Dévelloppeur Web</h3>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De Février à Mai 2018',
+                    shortContent: '<h3>Revealers.co</h3>',
+                    fullContent: '<h3>Revealers.co</h3>' +
+                    '<p class="title">Symfony - SQL - CSS - Jquery - GitHub</p>' +
+                    '<p>Refonte du CSS et ajout de multuples fonction en JS et Jquery pour améliorere l\'UX / UI</p>' +
+                    '<p>Modification / Création d\'entités, Services, Event Listener, command, Repository, Controller pour Symfony 3.4</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De Septembre à Février 2018',
+                    shortContent: '<h3>AMRF</h3>',
+                    fullContent: '<h3>AMRF</h3>' +
+                    '<p class="title">Symfony - SQL - CSS - Jquery - GitHub</p>' +
+                    '<p>Création d\'une application web dans le cadre de ma formation à la Wild Code School</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'bigItem',
+                    shortContent: '<h3>Directeur / Animateur</h3>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De septembre 2015 à 2016',
+                    shortContent: '<h3>Mairie de Francheville <small>(Animation)</small></h3>',
+                    fullContent: '<h3>Mairie de Francheville <small>(Animation)</small></h3>' +
+                    '<p>Préparation des Temps d\'Accueil Périscolaire</p>' +
+                    '<p>Centre deLoisir Sans Hébergement</p>' +
+                    '<p>Accompagner et proposer des animations aux enfants pendant les temps de repas</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De novembre 2013 à septembre 2014',
+                    shortContent: '<h3>Atelier Kid à Ecully <small>(Direction)</small></h3>',
+                    fullContent: '<h3>Atelier Kid à Ecully <small>(Direction)</small></h3>' +
+                    '<p>Organisé la vie de la structure, gestion du personnel</p>' +
+                    '<p>Accueil des enfants et de leurs familles</p>' +
+                    '<p>Organisation des temps d\'activités</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De janvier 2013 à novembre 2013',
+                    shortContent: '<h3>Atelier Kid à Ecully <small>(Animation)</small></h3>',
+                    fullContent: '<h3>Atelier Kid à Ecully <small>(Animation)</small></h3>' +
+                    '<p>Préparation des activités manuelles et culturelles pour les enfants de 4 à 12ans</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De septembre 2009 à aoùt 2012',
+                    shortContent: '<h3>Mairie de Marcy l\'étoile <small>(Animation)</small></h3>',
+                    fullContent: '<h3>Mairie de Marcy l\'étoile <small>(Animation)</small></h3>' +
+                    '<p>Préparation des Temps d\'Accueil Périscolaire</p>' +
+                    '<p>Encadrement d\'adolescent en accueil libre.</p>' +
+                    '<p>Centre de Loisir Sans Hébergement</p>' +
+                    '<p>Accompagner et proposer des animations aux enfants pendant les temps de repas</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+                {
+                    type: 'bigItem',
+                    shortContent: '<h3>Initiateur d\'Escalade</h3>',
+
+                },
+                {
+                    type: 'smallItem',
+                    label: 'De 2010 à 2017',
+                    shortContent: '<h3>Club La Dégaine</h3>',
+                    fullContent: '<h3>Club La Dégaine</h3>' +
+                    '<p>organiser des cours d\'escalade pour enfants, adolescents et adultes de tous iveaux</p>'+
+                    '<p>Concevoir et proposer les voies les plus adaptées possibles</p>'
+                    ,
+                    showMore: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '</a>',
+                    showLess: '<a class="custom-show-btn">' +
+                    '<i class="fas fa-chevron-up"></i>' +
+                    '</a>',
+
+                },
+
+            ]
+        });
+
+    </script>
+{% endblock %}

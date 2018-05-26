@@ -1,34 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
 
-    <article id="contact">
+    <article id="reseau">
         <div class="row">
             <div class="col-12">
                 <h3>Sur les Réseaux</h3>
             </div>
         </div>
-        <div class="row kards text">
-
-            <div class="col-12">
+        <div class="row kards align-items-center">
+            <div class="col-1 icon text-center">
+                <i class="fab fa-twitter-square"></i>
+            </div>
+            <div class="col-3">
                 Twitter
             </div>
-            <div class="col-12">
+            <div class="col-1 icon text-center">
+                <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="col-3">
                 Linkedin
             </div>
-            <div class="col-12">
+            <div class="col-1 icon text-center">
+                <i class="fab fa-github-square"></i>
+            </div>
+            <div class="col-3">
                 GitHub
             </div>
         </div>
+
+    </article>
+
+    <article id="contact">
         <div class="row">
             <div class="col-12">
                 <h3>En direct</h3>
             </div>
         </div>
 
-        <form action="" class="row justify-content-center kards text ">
+        <form action="" class="row justify-content-center kards">
 
             <div class="col-lg-6 col-12">
                 <label for="firstName">Prénom :</label>
@@ -66,18 +78,25 @@
 {% block javascripts %}
     <script>
         $(document).ready(function () {
-            $("#contact").fadeTo(1000, 1, function () {
+            $("#reseau").fadeTo(1000, 1, function () {
+                // Animation complete.
+            });
+            $("#contact").delay(1000).fadeTo(1000, 1, function () {
                 // Animation complete.
             });
             $(document).scroll(function () {
 
                 let headerHeight = $('header').height();
                 let navbarHeight = $('nav').height();
-                let whoIamHeight = $('#whoIam').height();
 
                 let scrollPosition = $(document).scrollTop();
-                let fristSwitch = (headerHeight + navbarHeight) + (whoIamHeight / 4);
+                let fristSwitch = (headerHeight + navbarHeight);
 
+                /*     if (scrollPosition >= fristSwitch) {
+                         $("#contact").fadeTo(1000, 1, function () {
+                             // Animation complete.
+                         });
+                     }*/
 
             });
             let ButtonSubmit = $('.submitContact');
@@ -88,7 +107,6 @@
             });
 
 
-
             ButtonSubmit.hover(function () {
                 checkForm();
             });
@@ -96,15 +114,19 @@
                 checkForm();
             }).blur(function () {
                 checkForm();
+            }).keyup(function () {
+                checkForm();
             });
             $('#message').focus(function () {
                 checkForm();
             }).blur(function () {
                 checkForm();
+            }).keyup(function () {
+                checkForm();
             });
 
             function checkForm() {
-                console.log("CHECK");
+                /*console.log("CHECK");*/
 
                 let email = $('#email').val();
                 let message = $('#message').val();
@@ -137,13 +159,11 @@
 
 
                 if (verif === true) {
-                    button.removeClass("disabled")
+                    button.removeClass("disabled").popover('disable');
                 }
                 else {
-                    console.log("ERROR");
                     let test = errors.join(" ");
-                    console.log(test);
-
+                    button.addClass("disabled").popover('enable');
                     button.attr('data-content', test + ".");
                 }
 

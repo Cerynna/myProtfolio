@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}My production{% endblock %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
                     <h3>{{ production.name }}</h3>
                     <div class="imgProduction">
                         <a href="{{ production.link }}" target="_blank">
-                            <img src="{{ asset(production.img) }}" alt="" class="img-fluid">
+                            <img src="{{ asset(production.img) }}" alt="" class="img-fluid img-prod">
                         </a>
                         <div class="bottom">
                             <div class="icon animated infinite pulse">
