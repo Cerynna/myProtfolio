@@ -1,5 +1,8 @@
 $black: #1a1a1a;
 $color1: #3a99ff;
+$color2: #550905;
+$color3: #00550b;
+$color4: #904f00;
 $white: lighten($color1, 50);
 @import url('https://fonts.googleapis.com/css?family=Righteous|Raleway:500');
 @import 'timeline';
@@ -164,6 +167,7 @@ body {
       color: $black;
 
     }
+
     input, textarea {
       width: 100%;
       border-radius: 5px;
@@ -196,6 +200,45 @@ body {
       background: rgba(red($white), green($white), blue($white), 0.5);
     }
 
+  }
+
+}
+
+.myFlash {
+  position: absolute;
+  width: 100%;
+  display: none;
+  z-index: 1000;
+  .content {
+    width: 300px;
+
+    margin: auto;
+    .close {
+      position: relative;
+      right: 0;
+      font-size: 0.9em;
+      padding: 5px;
+    }
+    .message {
+      padding: 5px 10px;
+      width: 100%;
+      border-radius: 10px;
+      &.error {
+        background: lighten($color2, 70);
+        color: darken($color2, 5);
+        border: 2px solid rgba(red($color2), green($color2), blue($color2), 0.8);
+      }
+      &.wtf {
+        background: lighten($color4, 70);
+        color: darken($color4, 5);
+        border: 2px solid rgba(red($color4), green($color4), blue($color4), 0.8);
+      }
+      &.valid {
+        background: lighten($color3, 70);
+        color: darken($color3, 5);
+        border: 2px solid rgba(red($color3), green($color3), blue($color3), 0.8);
+      }
+    }
   }
 
 }

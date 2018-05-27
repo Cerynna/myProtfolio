@@ -9,6 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contact
 {
+
+    const STATUS = [
+      "waiting" => 0,
+      "check" => 1,
+      "delete" => 2,
+      "save" => 99,
+
+    ];
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -40,6 +50,11 @@ class Contact
      * @ORM\Column(type="integer")
      */
     private $status;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
 
     public function getId()
     {
@@ -102,6 +117,18 @@ class Contact
     public function setStatus(int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

@@ -717,4 +717,34 @@ body {
       border: 2px solid rgba(255, 255, 255, 0.5);
       background: rgba(255, 255, 255, 0.5); }
 
+.myFlash {
+  position: absolute;
+  width: 100%;
+  display: none;
+  z-index: 1000; }
+  .myFlash .content {
+    width: 300px;
+    margin: auto; }
+    .myFlash .content .close {
+      position: relative;
+      right: 0;
+      font-size: 0.9em;
+      padding: 5px; }
+    .myFlash .content .message {
+      padding: 5px 10px;
+      width: 100%;
+      border-radius: 10px; }
+      .myFlash .content .message.error {
+        background: #fcc6c4;
+        color: #3d0604;
+        border: 2px solid rgba(85, 9, 5, 0.8); }
+      .myFlash .content .message.wtf {
+        background: #fffbf6;
+        color: #774100;
+        border: 2px solid rgba(144, 79, 0, 0.8); }
+      .myFlash .content .message.valid {
+        background: #bbffc4;
+        color: #003c08;
+        border: 2px solid rgba(0, 85, 11, 0.8); }
+
 /*# sourceMappingURL=main.css.map */

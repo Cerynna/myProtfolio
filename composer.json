@@ -5,6 +5,7 @@
         "php": "^7.2",
         "ext-iconv": "*",
         "easycorp/easyadmin-bundle": "^1.17",
+        "google/recaptcha": "~1.1",
         "sensio/framework-extra-bundle": "^5.1",
         "sensiolabs/security-checker": "^4.1",
         "symfony/apache-pack": "^1.0",

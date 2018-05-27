@@ -57,13 +57,20 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"
         integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR"
         crossorigin="anonymous"></script>
-
+<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer'></script>
 
 
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/timeline.js') }}"></script>
 <script src="{{ asset('js/scrollmagic/uncompressed/ScrollMagic.js') }}"></script>
-
+<script type="text/javascript">
+    var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : '6LdvqlsUAAAAAMsAQTAMDxsDESs1JVc2XZLClCkb'
+        });
+    };
+</script>
 {% block javascripts %}
 
 {% endblock %}

@@ -19,6 +19,32 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
+    public function verifEmail(Contact $contact)
+    {
+
+        $query = $this->createQueryBuilder('c');
+
+        $query->where('c.date BETWEEN :start AND :end')
+            ->setParameter("start", new \DateTime('now -5 minutes'))
+            ->setParameter("end", new \DateTime('now'));
+
+        $query->andWhere('c.email = :email');
+        $query->setParameter('email', $contact->getEmail());
+        $verif = $query->getQuery()->getOneOrNullResult();
+
+        if (is_null($verif)) {
+            return true;
+        } else {
+            return [
+                "error" => [
+                    "text" => "Tu as déjà envoyer un message il y as moins de 5 min",
+                ]];
+        }
+
+
+    }
+
+
 //    /**
 //     * @return Contact[] Returns an array of Contact objects
 //     */
