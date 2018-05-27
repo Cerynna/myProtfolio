@@ -39,15 +39,6 @@ class MainController extends Controller
     public function contact()
     {
 
-        $contact = new Contact();
-        $contact->setEmail("cerynna@gmail.com");
-        $contact->setMessage("sregqesrghnsrg qergtnhfdgbeqtgb");
-        $contact->setDate(new \DateTime('now'));
-
-        $verif = $this->getDoctrine()->getRepository(Contact::class)->verifEmail($contact);
-
-        dump($verif);
-
         return $this->render('main/contact.html.twig', [
             'controller_name' => 'MainController',
         ]);
