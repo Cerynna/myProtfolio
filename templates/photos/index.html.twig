@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="{{ asset('css/lightgallery.css') }}">
+<ul id="aniimated-thumbnials">
+    {% for photo in listPhotos %}
+        <a href="{{ photo.0 }}">
+            <img src="{{ photo.1 }}">
+        </a>
+    {% endfor %}
+</ul>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+<script src="{{ asset('js/lightgallery.js') }}"></script>
+
+<script src="{{ asset('js/lg-thumbnail.js') }}"></script>
+<script src="{{ asset('js/lg-fullscreen.js') }}"></script>
+<script src="{{ asset('js/lg-autoplay.js') }}"></script>
+<script src="{{ asset('js/lg-zoom.js') }}"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#aniimated-thumbnials').lightGallery({
+            download: false,
+            mode: 'lg-fade',
+            autoplay: true,
+            pause: 5000,
+            progressBar: false,
+            fourceAutoplay: true,
+            autoplayControls: true,
+            fullScreen: true,
+            appendAutoplayControlsTo: '.lg-toolbar'
+        });
+    });
+</script>
+{#
+<div class="example-wrapper">
+#}
+{#    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'src/Controller/PhotosController.php'|file_link(0) }}">src/Controller/PhotosController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'templates/photos/index.html.twig'|file_link(0) }}">templates/photos/index.html.twig</a></code></li>
+    </ul>#}{#
+
+</div>#}
